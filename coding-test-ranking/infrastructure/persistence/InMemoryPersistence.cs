@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace coding_test_ranking.infrastructure.persistence
 {
-    public class InMemoryPersistence
+    public class InMemoryPersistence : IPersistence
     {
         private List<AdVO> ads;
         private List<PictureVO> pictures;
@@ -31,6 +31,17 @@ namespace coding_test_ranking.infrastructure.persistence
             pictures.Add(new PictureVO { Id = 6, Url = "http://www.idealista.com/pictures/6", Quality = "SD" });
             pictures.Add(new PictureVO { Id = 7, Url = "http://www.idealista.com/pictures/7", Quality = "SD" });
             pictures.Add(new PictureVO { Id = 8, Url = "http://www.idealista.com/pictures/8", Quality = "HD" });
+        }
+
+
+        public IEnumerable<AdVO> GetAdsVO()
+        {
+            return ads;
+        }
+
+        public IEnumerable<PictureVO> GetPicturesVO()
+        {
+            return pictures;
         }
     }
 }
